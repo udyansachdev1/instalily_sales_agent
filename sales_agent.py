@@ -52,7 +52,7 @@ if st.button("🚀 Run Analysis"):
 
             master_events = []
             with st.spinner("📡 Searching for industry events and associations..."):
-                for keyword in processed_keywords:
+                for keyword in processed_keywords[:10]:
                     associations = find_trade_associations(keyword)
                     events_google = find_industry_events_google(keyword)
                     master_events.extend(associations + events_google)
