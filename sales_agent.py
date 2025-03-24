@@ -76,6 +76,7 @@ if st.button("🚀 Run Analysis"):
                 # ---- EXTRACT COMPANIES FROM EVENTS ----
                 all_companies = []
                 for content in cleaned_data:
+                    content = content[:2500]
                     companies = find_companies_from_event_url(
                         content, processed_keywords
                     )
