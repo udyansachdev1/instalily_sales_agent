@@ -1,4 +1,5 @@
 import os
+import streamlit as st
 
 # Retrieve API key from environment variable
 api_key = os.getenv("OPENAI_API_KEY", st.secrets.get("OPENAI_API_KEY"))
