@@ -1,4 +1,4 @@
-# instalily_sales_agent
+#  AI Sales Agent
 
 # AI Agent Workflow for Lead Generation and Outreach
 
