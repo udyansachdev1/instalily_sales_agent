@@ -1,7 +1,7 @@
 import os
 
 # Retrieve API key from environment variable
-api_key = os.getenv("OPENAI_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY", st.secrets.get("OPENAI_API_KEY"))
 
 LINKEDIN_API_KEY = "your_linkedin_api_key"
 CLAY_API_KEY = "your_clay_api_key"
