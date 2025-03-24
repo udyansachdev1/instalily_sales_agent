@@ -83,7 +83,7 @@ def find_trade_associations(keyword):
     associations = []
     query = f"{keyword} trade association OR professional body"
     try:
-        results = list(search(query, num=3))
+        results = list(search(query, num=1))
         associations.extend(results)
     except Exception as e:
         st.error(f"Error fetching associations for {keyword}: {e}")
@@ -97,7 +97,7 @@ def find_industry_events_google(keyword):
     events = []
     query = f"{keyword} industry conference OR trade show OR event"
     try:
-        results = list(search(query, num=3))
+        results = list(search(query, num=1))
         events.extend(results)
     except Exception as e:
         st.error(f"Error fetching events for {keyword}: {e}")
