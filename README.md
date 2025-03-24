@@ -24,7 +24,7 @@ The AI agent workflow is designed to automate the lead generation process by bre
 
 ### **Workflow Diagram**
 
-![AI Agent Workflow]()
+![AI Agent Workflow](https://github.com/udyansachdev1/instalily_sales_agent/blob/main/workflow.png)
 
 **Workflow Steps**
 
