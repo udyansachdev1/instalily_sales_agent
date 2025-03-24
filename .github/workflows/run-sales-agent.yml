@@ -20,4 +20,4 @@ jobs:
         env:
           API_KEY_1: ${{ secrets.API_KEY }}
           API_KEY_2: ${{ secrets.HUNTER_API_KEY }}
-        run: python utils.py
+        run: python config.py
