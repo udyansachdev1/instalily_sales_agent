@@ -148,7 +148,8 @@ def find_companies_from_event_url(content, keywords):
             temperature=0.1,
         )
         companies_text = response.output[0].content[0].text
-
+        companies_text = " ".join(companies_text.split())
+        companies_text = companies_text[:3000] 
         # Convert the response text to a list, splitting on newline
         companies = [
             company.strip() for company in companies_text.split("\n") if company.strip()
