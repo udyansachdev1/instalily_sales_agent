@@ -3,7 +3,8 @@ import streamlit as st
 
 # Retrieve API key from environment variable
 #api_key = st.secrets.general.API_KEY
-api_key = os.getenv("API_KEY")
+#api_key = os.getenv("API_KEY")
+api_key = st.secrets["API_KEY"]
 LINKEDIN_API_KEY = "your_linkedin_api_key"
 CLAY_API_KEY = "your_clay_api_key"
 
