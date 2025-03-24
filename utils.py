@@ -84,7 +84,7 @@ def find_trade_associations(keyword):
     query =f"{keyword} trade association OR professional body OR industry conference OR trade show OR event"
 
     try:
-        results = list(search(query, num=1))
+        results = list(search(query, num=1,stop = 3))
         associations.extend(results)
     except Exception as e:
         st.error(f"Error fetching associations for {keyword}: {e}")
