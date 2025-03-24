@@ -56,8 +56,8 @@ if st.button("🚀 Run Analysis"):
                     #events_google = find_industry_events_google(keyword)
                     master_events.extend(associations)
 
-            master_events = list(set(associations))
-            time.sleep(2)
+                master_events = list(set(associations))
+                time.sleep(2)
 
             # ---- DISPLAY EVENTS & ASSOCIATIONS ----
             st.subheader("📅 Industry Associations & Events")
