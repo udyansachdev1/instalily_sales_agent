@@ -7,7 +7,6 @@ import time
 from utils import (
     parse_website_for_keywords,
     find_trade_associations,
-    find_industry_events_google,
     scrape_event_page,
     clean_text_list,
     find_companies_from_event_url,
@@ -52,11 +51,11 @@ if st.button("🚀 Run Analysis"):
 
             master_events = []
             with st.spinner("📡 Searching for industry events and associations..."):
-                for keyword in processed_keywords[:10]:
+                for keyword in processed_keywords[:15]:
                     associations = find_trade_associations(keyword)
-                    events_google = find_industry_events_google(keyword)
-                    master_events.extend(associations + events_google)
-                master_events = list(set(master_events))
+                    #events_google = find_industry_events_google(keyword)
+                    #master_events.extend(associations + events_google)
+                master_events = list(set(associations))
                 time.sleep(2)
 
             # ---- DISPLAY EVENTS & ASSOCIATIONS ----
