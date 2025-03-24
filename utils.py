@@ -130,32 +130,42 @@ def scrape_event_page(event_url):
         # st.error(f"Error scraping event page: {e}")
         return ""
 
+# AI Agent 3: Identify Companies Attending These Events
+
 
 def find_companies_from_event_url(content, keywords):
     """
     Extract company names from the provided event content that match the given keywords,
     using OpenAI's GPT-3.5 Turbo model.
+
+    Parameters:
+    - content: The event content (text or URL) to extract companies from.
+    - keywords: A list of keywords to filter the companies.
+
+    Returns:
+    A list of company names extracted from the content.
     """
+    # Construct the prompt with the content and keywords
     prompt = (
         f"Given the following content:\n\n{content}\n\n"
         f"Extract the names of companies that are related to the following keywords: {', '.join(keywords)}.\n"
         "Return the list of company names separated by newlines in plain text."
     )
     try:
+        # Create an OpenAI client instance
+
+        # Request to OpenAI GPT-3.5 model using the new responses API
         response = client.responses.create(
-            model="gpt-3.5-turbo",  # Use the GPT-3.5-turbo model
+            model="gpt-3.5-turbo",  # Use the GPT-3.5 turbo model
             input=prompt,
             temperature=0.1,
+            
         )
-        companies_text = response.output[0].content[0].text
-        companies_text = " ".join(companies_text.split())
-        companies_text = companies_text[:2500] 
-        # Convert the response text to a list, splitting on newline
-        companies = [
-            company.strip() for company in companies_text.split("\n") if company.strip()
-        ]
 
-        # Filter out companies that contain unwanted terms
+        # Extracting and returning the generated keywords
+        companies_text = response.output[0].content[0].text
+
+        # Convert to list & filter unwanted terms
         unwanted_terms = [
             "trade association",
             "professional body",
@@ -165,6 +175,12 @@ def find_companies_from_event_url(content, keywords):
             "expo",
             "conference",
         ]
+        
+        # Convert the response text to a list, splitting on newline
+        companies = [
+            company.strip() for company in companies_text.split("\n") if company.strip()
+        ]
+        # Filter out companies that contain unwanted terms
         filtered_companies = [
             company
             for company in companies
@@ -174,9 +190,9 @@ def find_companies_from_event_url(content, keywords):
         return filtered_companies
 
     except Exception as e:
-        st.error(f"Error extracting company names: {e}")
+        print(f"Error extracting company names: {e}")
         return []
-
+        
 
 def get_company_details(company_name):
     """
