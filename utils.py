@@ -81,7 +81,8 @@ def find_trade_associations(keyword):
     Searches for trade associations related to a keyword.
     """
     associations = []
-    query = f"{keyword} trade association OR professional body"
+    query =f"{keyword} trade association OR professional body OR industry conference OR trade show OR event"
+
     try:
         results = list(search(query, num=1))
         associations.extend(results)
@@ -90,18 +91,18 @@ def find_trade_associations(keyword):
     return associations
 
 
-def find_industry_events_google(keyword):
-    """
-    Searches for industry events related to a keyword.
-    """
-    events = []
-    query = f"{keyword} industry conference OR trade show OR event"
-    try:
-        results = list(search(query, num=1))
-        events.extend(results)
-    except Exception as e:
-        st.error(f"Error fetching events for {keyword}: {e}")
-    return events
+# def find_industry_events_google(keyword):
+#     """
+#     Searches for industry events related to a keyword.
+#     """
+#     events = []
+#     query = f"{keyword} industry conference OR trade show OR event"
+#     try:
+#         results = list(search(query, num=1))
+#         events.extend(results)
+#     except Exception as e:
+#         st.error(f"Error fetching events for {keyword}: {e}")
+#     return events
 
 
 def scrape_event_page(event_url):
