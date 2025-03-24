@@ -1,4 +1,5 @@
 import os
+import streamlit as st
 
 # Retrieve API key from environment variable
 api_key = st.secrets["API_KEY"]
